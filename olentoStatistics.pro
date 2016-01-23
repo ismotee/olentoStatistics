@@ -13,8 +13,10 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp
+        mainwindow.cpp \
+    olentotable.cpp
 
-HEADERS  += mainwindow.h
+HEADERS  += mainwindow.h \
+    olentotable.h
 
 FORMS    += mainwindow.ui
