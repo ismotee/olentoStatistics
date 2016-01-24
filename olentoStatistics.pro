@@ -15,13 +15,19 @@ TEMPLATE = app
 SOURCES += main.cpp\
         mainwindow.cpp \
     olentotable.cpp \
-    kappale.cpp
+    kappale.cpp \
+    kappalewidget.cpp \
+    kappaletablewidget.cpp
 
 HEADERS  += mainwindow.h \
     olentotable.h \
-    kappale.h
+    kappale.h \
+    kappalewidget.h \
+    kappaletablewidget.h
 
-FORMS    += mainwindow.ui
+FORMS    += mainwindow.ui \
+    kappalewidget.ui \
+    kappaletablewidget.ui
 
 DISTFILES += \
     shapeTable.txt
