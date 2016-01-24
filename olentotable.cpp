@@ -19,7 +19,7 @@ void olentoTable::loadToList()
         QStringList strList = str.split(";");
         std::vector<float> values;
         for(int i = 0; i < strList.length();i++) {
-            QString strr = (Qstring)strList.at(i);
+            QString strr = (QString)strList.at(i);
             values.push_back(strr.toFloat());
         }
         kappaleet.push_back(values);
