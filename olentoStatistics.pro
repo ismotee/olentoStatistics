@@ -15,11 +15,13 @@ TEMPLATE = app
 SOURCES += main.cpp\
         mainwindow.cpp \
     olentotable.cpp \
-    kappale.cpp
+    kappale.cpp \
+    statistics.cpp
 
 HEADERS  += mainwindow.h \
     olentotable.h \
-    kappale.h
+    kappale.h \
+    statistics.h
 
 FORMS    += mainwindow.ui
 

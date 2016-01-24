@@ -16,6 +16,11 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
+private slots:
+    void on_inputSlider_valueChanged(int value);
+
+    void on_inputSlider_sliderMoved(int position);
+
 private:
     Ui::MainWindow *ui;
 };

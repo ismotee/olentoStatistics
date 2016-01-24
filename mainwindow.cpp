@@ -13,3 +13,15 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
+
+void MainWindow::on_inputSlider_valueChanged(int value)
+{
+    ui->progressBar->setValue(value);
+    ui->progressBar->update();
+}
+
+void MainWindow::on_inputSlider_sliderMoved(int position)
+{
+    ui->progressBar->setValue(position);
+    ui->progressBar->update();
+}
