@@ -39,6 +39,6 @@ void kappale::kehollisuus (KEHO id, float set)
 void kappale::all (std::vector<float> kaikkiArvot)
 {
     muotoList.insert(muotoList.begin(), kaikkiArvot.begin(),kaikkiArvot.begin() + 6);
-    muotoList.insert(muotoList.begin(), kaikkiArvot.begin() + 7,kaikkiArvot.end());
+    kehoList.insert(kehoList.begin(), kaikkiArvot.begin() + 7,kaikkiArvot.end());
 
 }
