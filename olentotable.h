@@ -2,19 +2,22 @@
 #define OLENTOTABLE_H
 
 #include <QFile>
-#include <QList>
+#include <QStringList>
 #include <QString>
 #include <QTextStream>
+#include "kappale.h"
+#include <vector>
 
 class olentoTable
 {
 private:
     QFile file;
-    QList<float> muoto;
-    QList<float> keho;
+    void loadToList();
 
 public:
     olentoTable(QString path);
+    std::vector<kappale> kappaleet;
+    std::vector<kappale> haeKappaleet (std::vector<int> idt);
 };
 
 #endif // OLENTOTABLE_H

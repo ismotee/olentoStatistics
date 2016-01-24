@@ -14,9 +14,14 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    olentotable.cpp
+    olentotable.cpp \
+    kappale.cpp
 
 HEADERS  += mainwindow.h \
-    olentotable.h
+    olentotable.h \
+    kappale.h
 
 FORMS    += mainwindow.ui
+
+DISTFILES += \
+    shapeTable.txt
