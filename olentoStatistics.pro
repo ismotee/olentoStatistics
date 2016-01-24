@@ -16,22 +16,16 @@ SOURCES += main.cpp\
         mainwindow.cpp \
     olentotable.cpp \
     kappale.cpp \
-<<<<<<< HEAD
     kappalewidget.cpp \
-    kappaletablewidget.cpp
-=======
+    kappaletablewidget.cpp \
     statistics.cpp
->>>>>>> cf923c9699eeb43d0578769b6cf7185aca1273d0
 
 HEADERS  += mainwindow.h \
     olentotable.h \
     kappale.h \
-<<<<<<< HEAD
     kappalewidget.h \
-    kappaletablewidget.h
-=======
+    kappaletablewidget.h \
     statistics.h
->>>>>>> cf923c9699eeb43d0578769b6cf7185aca1273d0
 
 FORMS    += mainwindow.ui \
     kappalewidget.ui \
