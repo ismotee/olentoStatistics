@@ -79,7 +79,7 @@ std::vector< std::vector<float> > olentoTable::haeMuotoarvot() {
 std::vector<kappale> olentoTable::haeSamankehoisia(std::vector<float> kehoInput) {
 
     std::vector<kappale> palaute;
-    std::vector<int> indexList = jarjestaEroavuudenMukaan(haeKehoarvot(), kehoInput); //palauttaa järjestetyn indeksilistan
+    std::vector<int> indexList = jarjestaEroavuudenMukaan(haeKehoarvot(), kehoInput); //palauttaa jÃ¤rjestetyn indeksilistan
 
     palaute = getById(indexList);
 
@@ -89,7 +89,7 @@ std::vector<kappale> olentoTable::haeSamankehoisia(std::vector<float> kehoInput)
 
 std::vector<kappale> olentoTable::haeSamanmuotoisia(std::vector<float> muotoInput) {
     std::vector<kappale> palaute;
-    std::vector<int> indexList = jarjestaEroavuudenMukaan(haeMuotoarvot(), muotoInput); //palauttaa järjestetyn indeksilistan
+    std::vector<int> indexList = jarjestaEroavuudenMukaan(haeMuotoarvot(), muotoInput); //palauttaa jÃ¤rjestetyn indeksilistan
 
     palaute = getById(indexList);
 
@@ -118,3 +118,4 @@ void olentoTable::writeTest(QString path) {
        }
     }
 }
+
