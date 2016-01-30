@@ -12,19 +12,19 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>500</width>
-    <height>209</height>
+    <width>350</width>
+    <height>200</height>
    </rect>
   </property>
   <property name="sizePolicy">
-   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+   <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
     <horstretch>0</horstretch>
     <verstretch>0</verstretch>
    </sizepolicy>
   </property>
   <property name="minimumSize">
    <size>
-    <width>500</width>
+    <width>350</width>
     <height>200</height>
    </size>
   </property>
@@ -165,14 +165,14 @@
      <item row="2" column="0">
       <widget class="QLabel" name="label_2">
        <property name="text">
-        <string>TextLabel</string>
+        <string>Kehonkuva</string>
        </property>
       </widget>
      </item>
      <item row="2" column="2">
       <widget class="QLabel" name="label_3">
        <property name="text">
-        <string>TextLabel</string>
+        <string>Muoto</string>
        </property>
       </widget>
      </item>
