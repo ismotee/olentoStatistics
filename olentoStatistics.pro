@@ -15,7 +15,6 @@ TEMPLATE = app
 SOURCES += main.cpp\
         mainwindow.cpp \
     olentotable.cpp \
-    kappale.cpp \
     kappalewidget.cpp \
     kappaletablewidget.cpp \
     statistics.cpp

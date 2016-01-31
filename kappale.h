@@ -6,29 +6,14 @@
 enum KEHO {PAA,HARTIAT,RINTAKEHA,VATSA,SELKA,KADET,JALAT};
 enum MUOTO{ARKKITYYPPI,VARI,MATERIAALI,YLOS,TAIPUVA,TWIST,PULLEA};
 
-
-class kappale
-{
-
-public:
-
-//costructor
-    kappale(std::vector<float> kaikki_arvot);
-
-//methods
-    float kehollisuus (KEHO arvo);
-    std::vector<float> kehollisuus ();
-    float muoto (MUOTO arvo);
-    std::vector<float> muoto ();
-    void muoto (MUOTO id,float set);
-    void kehollisuus (KEHO id, float set);
-    void all (std::vector<float> kaikkiArvot);
-
-protected:
-
-private:
-    std::vector<float> muotoList;
-    std::vector<float> kehoList;
+struct kappale {
+    kappale (std::vector<float> kaikkiArvot) {
+        muoto.insert(muoto.begin(), kaikkiArvot.begin(),kaikkiArvot.begin() + 6);
+        kehollisuus.insert(kehollisuus.begin(), kaikkiArvot.begin() + 7,kaikkiArvot.end());
+    }
+    std::vector<float> kehollisuus;
+    std::vector<float> muoto;
+    float eroavuus;
 };
 
 #endif // KAPPALE_H
