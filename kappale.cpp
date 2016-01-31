@@ -13,6 +13,7 @@ float kappale::kehollisuus (KEHO arvo)
 
 std::vector<float> kappale::kehollisuus ()
 {
+    // Tyhmä kommentti LÖYTYI!!!!
     return kehoList;
 }
 
