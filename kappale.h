@@ -10,7 +10,9 @@ struct kappale {
     kappale (std::vector<float> kaikkiArvot) {
         muoto.insert(muoto.begin(), kaikkiArvot.begin(),kaikkiArvot.begin() + 6);
         kehollisuus.insert(kehollisuus.begin(), kaikkiArvot.begin() + 7,kaikkiArvot.end());
+        eroavuus = -1;
     }
+
     std::vector<float> kehollisuus;
     std::vector<float> muoto;
     float eroavuus;
