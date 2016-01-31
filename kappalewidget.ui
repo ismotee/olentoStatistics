@@ -56,91 +56,91 @@
       <number>2</number>
      </property>
      <item row="9" column="0">
-      <widget class="QProgressBar" name="progressBar">
+      <widget class="QProgressBar" name="jalatBar">
        <property name="value">
         <number>24</number>
        </property>
       </widget>
      </item>
      <item row="8" column="0">
-      <widget class="QProgressBar" name="progressBar_3">
+      <widget class="QProgressBar" name="kadetBar">
        <property name="value">
         <number>24</number>
        </property>
       </widget>
      </item>
      <item row="8" column="2">
-      <widget class="QProgressBar" name="progressBar_4">
+      <widget class="QProgressBar" name="twistBar">
        <property name="value">
         <number>24</number>
        </property>
       </widget>
      </item>
      <item row="7" column="0">
-      <widget class="QProgressBar" name="progressBar_5">
+      <widget class="QProgressBar" name="selkaBar">
        <property name="value">
         <number>24</number>
        </property>
       </widget>
      </item>
      <item row="7" column="2">
-      <widget class="QProgressBar" name="progressBar_6">
+      <widget class="QProgressBar" name="taipuvaBar">
        <property name="value">
         <number>24</number>
        </property>
       </widget>
      </item>
      <item row="6" column="0">
-      <widget class="QProgressBar" name="progressBar_7">
+      <widget class="QProgressBar" name="vatsaBar">
        <property name="value">
         <number>24</number>
        </property>
       </widget>
      </item>
      <item row="6" column="2">
-      <widget class="QProgressBar" name="progressBar_8">
+      <widget class="QProgressBar" name="ylosBar">
        <property name="value">
         <number>24</number>
        </property>
       </widget>
      </item>
      <item row="5" column="0">
-      <widget class="QProgressBar" name="progressBar_9">
+      <widget class="QProgressBar" name="rintakehaBar">
        <property name="value">
         <number>24</number>
        </property>
       </widget>
      </item>
      <item row="5" column="2">
-      <widget class="QProgressBar" name="progressBar_10">
+      <widget class="QProgressBar" name="materiaaliBar">
        <property name="value">
         <number>24</number>
        </property>
       </widget>
      </item>
      <item row="4" column="2">
-      <widget class="QProgressBar" name="progressBar_12">
+      <widget class="QProgressBar" name="variBar">
        <property name="value">
         <number>24</number>
        </property>
       </widget>
      </item>
      <item row="3" column="0">
-      <widget class="QProgressBar" name="progressBar_13">
+      <widget class="QProgressBar" name="paaBar">
        <property name="value">
         <number>24</number>
        </property>
       </widget>
      </item>
      <item row="4" column="0">
-      <widget class="QProgressBar" name="progressBar_11">
+      <widget class="QProgressBar" name="hartiatBar">
        <property name="value">
         <number>24</number>
        </property>
       </widget>
      </item>
      <item row="3" column="2">
-      <widget class="QProgressBar" name="progressBar_14">
+      <widget class="QProgressBar" name="arkkityyppiBar">
        <property name="value">
         <number>24</number>
        </property>
@@ -184,9 +184,16 @@
       </widget>
      </item>
      <item row="9" column="2">
-      <widget class="QProgressBar" name="progressBar_2">
+      <widget class="QProgressBar" name="pulleaBar">
        <property name="value">
         <number>24</number>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="2">
+      <widget class="QLabel" name="eroavaisuus">
+       <property name="text">
+        <string>eroavaisuus</string>
        </property>
       </widget>
      </item>

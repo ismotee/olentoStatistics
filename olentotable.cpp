@@ -61,7 +61,7 @@ std::vector< std::vector<float> > olentoTable::haeKehoarvot() {
     std::vector< std::vector<float> > palaute;
 
     for(int i=0; i < kappaleet.size(); i++)
-        palaute.push_back(kappaleet[i].kehollisuus() );
+        palaute.push_back(kappaleet[i].kehollisuus );
 
     return palaute;
 }
@@ -71,7 +71,7 @@ std::vector< std::vector<float> > olentoTable::haeMuotoarvot() {
     std::vector< std::vector<float> > palaute;
 
     for (int i=0; i<kappaleet.size(); i++)
-        palaute.push_back(kappaleet[i].kehollisuus() );
+        palaute.push_back(kappaleet[i].kehollisuus );
 
     return palaute;
 }
@@ -110,7 +110,7 @@ void olentoTable::writeTest(QString path) {
         QTextStream out(&file);
 
         for(int i=0; i<T.size(); i++) {
-        std::vector<float> values = T[i].kehollisuus();
+        std::vector<float> values = T[i].kehollisuus;
         for(int j=0; j<values.size(); j++){
            out << values[j] << ";";
         }
