@@ -7,10 +7,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    kappaleTableWidget* kplTable = new kappaleTableWidget(ui->centralWidget);
-    ui->horizontalLayout->addWidget(kplTable);
-
-    // toivottavasti toimii..
+    kappaleTable = new kappaleTableWidget(ui->centralWidget);
+    ui->horizontalLayout->addWidget(kappaleTable);
 }
 
 MainWindow::~MainWindow()
@@ -20,6 +18,16 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_inputSlider_valueChanged(int value)
 {
+    //Kokeillaan kappaleiden näyttämistä
+    std::vector<float> input;
+    float fvalue = (float)value / 100;
+    for(int i=0; i<7; i++)
+        input.push_back(fvalue);
+
+    olentoTable::haeSamankehoisia(input);
+
+    //tässä pitäisi antaa data widgetille
+    kappaleTable->setData(olentoTable::haeKappaleet() );
 
 }
 

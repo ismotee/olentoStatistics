@@ -2,6 +2,12 @@
 #include "statistics.h"
 #include <iostream>
 #include <string>
+#include <algorithm>
+
+
+//aineisto: kappaleet järjestettynä listaan
+std::vector<kappale> kappaleet;
+
 
 void olentoTable::loadToList(QString path)
 {
@@ -27,10 +33,17 @@ void olentoTable::loadToList(QString path)
     }
 }
 
-olentoTable::olentoTable(QString path)
+
+void olentoTable::jarjesta() {
+    //Vertailee kappaleiden eroavuuslukuja, jotka on asetettu muualla
+    sort(kappaleet.begin(), kappaleet.end(), vertaaEroavuutta );
+}
+
+
+/*olentoTable::olentoTable(QString path)
 {
     loadToList(path);
-}
+}*/
 
 
 std::vector<kappale> olentoTable::getById (std::vector<int> idt)
@@ -47,13 +60,8 @@ kappale olentoTable::getById(int i) {
     return kappaleet.at(i);
 }
 
-std::vector<kappale*> olentoTable::getList() {
-    std::vector<kappale*> palaute;
-    for(int i=0; i<kappaleet.size(); i++)
-        palaute.push_back(&kappaleet[i] );
-
-    return palaute;
-
+std::vector<kappale> olentoTable::haeKappaleet() {
+    return kappaleet;
 }
 
 std::vector< std::vector<float> > olentoTable::haeKehoarvot() {
@@ -76,46 +84,27 @@ std::vector< std::vector<float> > olentoTable::haeMuotoarvot() {
     return palaute;
 }
 
-std::vector<kappale> olentoTable::haeSamankehoisia(std::vector<float> kehoInput) {
+void olentoTable::haeSamankehoisia(std::vector<float> input) {
+    //Määritä kappaleiden kehollisuuden eroavuus annettuun syötteeseen
+    for(int i=0; i<kappaleet.size(); i++)
+        kappaleet[i].laskeKehonEroavuus(input);
 
-    std::vector<kappale> palaute;
-    std::vector<int> indexList = jarjestaEroavuudenMukaan(haeKehoarvot(), kehoInput); //palauttaa jÃ¤rjestetyn indeksilistan
-
-    palaute = getById(indexList);
-
-    return palaute;
+    //Järjestä eroavuuden perusteella
+    jarjesta();
 
 }
 
-std::vector<kappale> olentoTable::haeSamanmuotoisia(std::vector<float> muotoInput) {
-    std::vector<kappale> palaute;
-    std::vector<int> indexList = jarjestaEroavuudenMukaan(haeMuotoarvot(), muotoInput); //palauttaa jÃ¤rjestetyn indeksilistan
+void olentoTable::haeSamanmuotoisia(std::vector<float> input) {
+    //Määritä kappaleiden kehollisuuden eroavuus annettuun syötteeseen
+    for(int i=0; i<kappaleet.size(); i++)
+        kappaleet[i].laskeMuodonEroavuus(input);
 
-    palaute = getById(indexList);
-
-    return palaute;
+    //Järjestä eroavuuden perusteella
+    jarjesta();
 }
 
 
 void olentoTable::writeTest(QString path) {
 
-    std::vector<float> I;
-    I.resize(7);
-
-    std::vector<kappale> T = haeSamankehoisia(I);
-    QFile file(path);
-    if(!file.open(QIODevice::WriteOnly | QIODevice::Text))
-        std::cout << "Write error!\n";
-    else {
-        QTextStream out(&file);
-
-        for(int i=0; i<T.size(); i++) {
-        std::vector<float> values = T[i].kehollisuus;
-        for(int j=0; j<values.size(); j++){
-           out << values[j] << ";";
-        }
-         out << "\n";
-       }
-    }
 }
 

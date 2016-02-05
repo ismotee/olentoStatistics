@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "olentotable.h"
+#include "kappaletablewidget.h"
 
 
 namespace Ui {
@@ -25,6 +26,9 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
+
+    //Widget johon voi työntää dataa näytettäväksi
+    kappaleTableWidget* kappaleTable;
 };
 
 #endif // MAINWINDOW_H

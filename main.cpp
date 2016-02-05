@@ -1,11 +1,11 @@
 #include "mainwindow.h"
 #include "olentotable.h"
 #include <QApplication>
+#include <vector>
 
 int main(int argc, char *argv[])
 {
-    olentoTable T("/Users/ismotorvinen/olentoStatistics/shapeTable.txt");
-    T.writeTest("/Users/ismotorvinen/olentoStatistics/sorted.txt");
+    olentoTable::loadToList("shapeTable.txt");
 
     QApplication a(argc, argv);
     MainWindow w;
