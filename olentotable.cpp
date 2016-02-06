@@ -1,5 +1,5 @@
 #include "olentotable.h"
-#include "statistics.h"
+//#include "statistics.h"
 #include <iostream>
 #include <string>
 #include <algorithm>

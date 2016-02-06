@@ -41,11 +41,13 @@ void kappaleWidget::setName(QString name)
 void kappaleWidget::setData(kappale kpl) {
 
     for (int i = 0; i < kpl.kehollisuus.size();i++) {
-        kehoBars.at(i)->setValue((int)kpl.kehollisuus[i] * 100);
+        float scaled = kpl.kehollisuus[i] * 100;
+        kehoBars.at(i)->setValue((int)scaled);
     }
 
     for (int i = 0; i < kpl.muoto.size();i++) {
-        muotoBars.at(i)->setValue((int)kpl.muoto[i] * 100);
+        float scaled = kpl.muoto[i] * 100;
+        muotoBars.at(i)->setValue((int)scaled);
     }
 
     ui->eroavaisuus->setText(QString::number(kpl.eroavuus));

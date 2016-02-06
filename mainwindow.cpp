@@ -9,6 +9,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     kappaleTable = new kappaleTableWidget(ui->centralWidget);
     ui->horizontalLayout->addWidget(kappaleTable);
+    olentoTable::loadToList("c:\\Users\\Omistaja\\Documents\\olentoStatistics\\shapeTable.txt");
 }
 
 MainWindow::~MainWindow()
