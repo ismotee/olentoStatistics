@@ -57,6 +57,12 @@
           <property name="toolTip">
            <string>Vatsa</string>
           </property>
+          <property name="minimum">
+           <number>-100</number>
+          </property>
+          <property name="maximum">
+           <number>100</number>
+          </property>
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
           </property>
@@ -131,6 +137,12 @@
           <property name="toolTip">
            <string>Jalat</string>
           </property>
+          <property name="minimum">
+           <number>-100</number>
+          </property>
+          <property name="maximum">
+           <number>100</number>
+          </property>
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
           </property>
@@ -179,6 +191,12 @@
           <property name="toolTip">
            <string>Selkä</string>
           </property>
+          <property name="minimum">
+           <number>-100</number>
+          </property>
+          <property name="maximum">
+           <number>100</number>
+          </property>
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
           </property>
@@ -214,6 +232,12 @@
           <property name="toolTip">
            <string>Rintakehä</string>
           </property>
+          <property name="minimum">
+           <number>-100</number>
+          </property>
+          <property name="maximum">
+           <number>100</number>
+          </property>
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
           </property>
@@ -235,6 +259,12 @@
           </property>
           <property name="toolTip">
            <string>Hartiat</string>
+          </property>
+          <property name="minimum">
+           <number>-100</number>
+          </property>
+          <property name="maximum">
+           <number>100</number>
           </property>
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
@@ -263,6 +293,12 @@
           </property>
           <property name="toolTip">
            <string>Pää</string>
+          </property>
+          <property name="minimum">
+           <number>-100</number>
+          </property>
+          <property name="maximum">
+           <number>100</number>
           </property>
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
@@ -302,6 +338,12 @@
           <property name="toolTip">
            <string>Kädet</string>
           </property>
+          <property name="minimum">
+           <number>-100</number>
+          </property>
+          <property name="maximum">
+           <number>100</number>
+          </property>
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
           </property>
@@ -319,7 +361,7 @@
      <x>0</x>
      <y>0</y>
      <width>654</width>
-     <height>25</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>
