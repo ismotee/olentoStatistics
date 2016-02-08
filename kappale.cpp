@@ -10,7 +10,7 @@ float fabs(float x) {
 
 
 kappale::kappale (std::vector<float> kaikkiArvot) {
-    muoto.insert(muoto.begin(), kaikkiArvot.begin(),kaikkiArvot.begin() + 6);
+    muoto.insert(muoto.begin(), kaikkiArvot.begin(),kaikkiArvot.begin() + 7);
     kehollisuus.insert(kehollisuus.begin(), kaikkiArvot.begin() + 7,kaikkiArvot.end());
     eroavuus = -1;
 }
@@ -45,6 +45,27 @@ float kappale::laskeMuodonEroavuus(std::vector<float> vertailu) {
     //asettaa kappaleen eroavuusluvun muotoparametrien vertailun mukaan
     eroavuus = laskeEroavuus(muoto, vertailu);
     return eroavuus;
+}
+
+
+bool kappale::operator==(const kappale& rvalue) {
+    //Vertaa vain dataa, älä huomioi eroavuuslukua
+    return(muoto == rvalue.muoto && kehollisuus == rvalue.kehollisuus);
+}
+
+
+void kappale::kerro() {
+    if(muoto.size() == 7 && kehollisuus.size()==7) {
+        for(int i=0; i<7; i++)
+            std::cout << muoto[i] << "; ";
+        std::cout << " ";
+        for(int i=0; i<6; i++)
+            std::cout << kehollisuus[i] << "; ";
+        std::cout << kehollisuus[6] << "\n";
+    }
+    else
+        std::cout << "Huono koko: " << muoto.size() << ", " << kehollisuus.size() << "\n";
+
 }
 
 

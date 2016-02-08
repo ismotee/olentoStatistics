@@ -21,7 +21,6 @@ public:
 private slots:
 
     void on_inputSlider_valueChanged(int value);
-
     void on_inputSlider_sliderMoved(int position);
 
 private:
@@ -29,6 +28,9 @@ private:
 
     //Widget johon voi työntää dataa näytettäväksi
     kappaleTableWidget* kappaleTable;
+
+    //Input sliderien arvot
+    std::vector<float> inputValues;
 };
 
 #endif // MAINWINDOW_H

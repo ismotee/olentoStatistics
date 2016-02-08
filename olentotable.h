@@ -12,6 +12,7 @@ namespace olentoTable{
 
     //lataa kappaleet tiedostosta
     void loadToList(QString path);
+    void poistaHuonot();
 
     //Järjestä kappaleet eroavuuden mukaan. Kappaleiden eroavuusarvot asetetaan muualla; tämä vain suorittaa järjestämisen.
     void jarjesta();

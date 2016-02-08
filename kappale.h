@@ -17,6 +17,9 @@ struct kappale {
 
     float laskeMuodonEroavuus(std::vector<float> vertailu); //asettaa ja palauttaa eroavuuden
     float laskeKehonEroavuus(std::vector<float> vertailu);
+
+    bool operator==(const kappale& rvalue);
+    void kerro();
 };
 
 

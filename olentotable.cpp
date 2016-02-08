@@ -8,7 +8,6 @@
 //aineisto: kappaleet järjestettynä listaan
 std::vector<kappale> kappaleet;
 
-
 void olentoTable::loadToList(QString path)
 {
     //lukee kappaleet tiedostosta tableen
@@ -22,14 +21,47 @@ void olentoTable::loadToList(QString path)
         QString str = file.readLine();
         QStringList strList = str.split(";", QString::SkipEmptyParts);
         std::vector<float> values;
-        //std::cout << "values: " << strList.length() << "\n";
+        std::cout << "values: " << strList.length() << "\n";
         for(int i = 0; i < strList.length();i++) {
             QString strr = (QString)strList.at(i);
-            //td::cout << "[" << strr.toFloat() << "] ";
+            std::cout << "[" << strr.toFloat() << "] ";
             values.push_back(strr.toFloat());
         }
-        //std::cout << "\n";
+        std::cout << "\n";
         kappaleet.push_back(kappale(values));
+    }
+
+    poistaHuonot();
+}
+
+
+void olentoTable::poistaHuonot() {
+    //Poistetaan identtiset kappaleet, koska kappaleet ovat saattaneet kopioitua,
+    //ja koska on epätodennäköistä että käyttäjät olisivat todella tehneet identtisiä kappaleita.
+
+    //Poistetaan myös sellaiset kappaleet, joiden muoto on täsmälleen sama kuin kehonkuva,
+    //koska luultavimmin silloin käyttäjä ei ole antanut mitään kehonkuvaa.
+    //Pelkällä muototiedolla ei tehdä mitään.
+
+    //Tyhjennetään "kappaleet" ja lisätään takaisin vain hyvät
+    std::vector<kappale> kaikki = kappaleet;
+    kappaleet.clear();
+
+    for(int i=0; i<kaikki.size(); i++) {
+        //Lisää kappaleisiin, jos muoto ja kehollisuus eivät ole samat, ja jos samanlaista ei ole vielä kappaleissa
+        if(kaikki[i].muoto != kaikki[i].kehollisuus) {
+            bool alreadyAdded = false;
+            for(int j=0; j < kappaleet.size() && alreadyAdded == false; j++) {
+                if(kaikki[i] == kappaleet[j] ) {
+                    alreadyAdded = true;
+                }
+            }
+            if(alreadyAdded == false) {
+                //lisää kappaleisiin
+                kappaleet.push_back(kaikki[i]);
+                kaikki[i].kerro();
+            }
+        }
     }
 }
 
