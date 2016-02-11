@@ -20,8 +20,19 @@ public:
 
 private slots:
 
-    void on_inputSlider_valueChanged(int value);
-    void on_inputSlider_sliderMoved(int position);
+    void on_paaSlider_valueChanged(int value);
+
+    void on_hartiatSlider_valueChanged(int value);
+
+    void on_rintakehaSlider_valueChanged(int value);
+
+    void on_vatsaSlider_valueChanged(int value);
+
+    void on_selkaSlider_valueChanged(int value);
+
+    void on_kadetSlider_valueChanged(int value);
+
+    void on_jalatSlider_valueChanged(int value);
 
 private:
     Ui::MainWindow *ui;
@@ -31,6 +42,7 @@ private:
 
     //Input sliderien arvot
     std::vector<float> inputValues;
+    void sliderValueChangedRoutine (int id, int value);
 };
 
 #endif // MAINWINDOW_H

@@ -41,7 +41,7 @@
          <number>10</number>
         </property>
         <item row="6" column="1">
-         <widget class="QSlider" name="inputSlider_4">
+         <widget class="QSlider" name="vatsaSlider">
           <property name="minimumSize">
            <size>
             <width>100</width>
@@ -121,7 +121,7 @@
          </widget>
         </item>
         <item row="9" column="1">
-         <widget class="QSlider" name="inputSlider_7">
+         <widget class="QSlider" name="jalatSlider">
           <property name="minimumSize">
            <size>
             <width>100</width>
@@ -175,7 +175,7 @@
          </widget>
         </item>
         <item row="7" column="1">
-         <widget class="QSlider" name="inputSlider_5">
+         <widget class="QSlider" name="selkaSlider">
           <property name="minimumSize">
            <size>
             <width>100</width>
@@ -216,7 +216,7 @@
          </widget>
         </item>
         <item row="5" column="1">
-         <widget class="QSlider" name="inputSlider_3">
+         <widget class="QSlider" name="rintakehaSlider">
           <property name="minimumSize">
            <size>
             <width>100</width>
@@ -244,7 +244,7 @@
          </widget>
         </item>
         <item row="4" column="1">
-         <widget class="QSlider" name="inputSlider_2">
+         <widget class="QSlider" name="hartiatSlider">
           <property name="minimumSize">
            <size>
             <width>100</width>
@@ -272,7 +272,7 @@
          </widget>
         </item>
         <item row="1" column="1">
-         <widget class="QSlider" name="inputSlider">
+         <widget class="QSlider" name="paaSlider">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
             <horstretch>0</horstretch>
@@ -322,7 +322,7 @@
          </spacer>
         </item>
         <item row="8" column="1">
-         <widget class="QSlider" name="inputSlider_6">
+         <widget class="QSlider" name="kadetSlider">
           <property name="minimumSize">
            <size>
             <width>100</width>
@@ -361,7 +361,7 @@
      <x>0</x>
      <y>0</y>
      <width>654</width>
-     <height>21</height>
+     <height>22</height>
     </rect>
    </property>
   </widget>

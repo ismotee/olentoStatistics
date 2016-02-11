@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "kappaletablewidget.h"
+#include <QDir>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -9,7 +10,10 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     kappaleTable = new kappaleTableWidget(ui->centralWidget);
     ui->horizontalLayout->addWidget(kappaleTable);
-    olentoTable::loadToList("c:\\Users\\Omistaja\\Documents\\olentoStatistics\\shapeTable.txt");
+
+    int i=0;
+    while(i++ < 7) inputValues.push_back(0);
+
 }
 
 MainWindow::~MainWindow()
@@ -17,22 +21,51 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::on_inputSlider_valueChanged(int value)
-{
-    //Kokeillaan kappaleiden näyttämistä
-    std::vector<float> input;
-    float fvalue = (float)value / 100;
-    for(int i=0; i<7; i++)
-        input.push_back(fvalue);
 
-    olentoTable::haeSamankehoisia(input);
+//----------------------------------SLIDERIT-----------------------------------------
+
+void MainWindow::sliderValueChangedRoutine (int id, int value) {
+    //Kokeillaan kappaleiden näyttämistä
+    float fvalue = (float)value / 100;
+        inputValues[id] = fvalue;
+
+    olentoTable::haeSamankehoisia(inputValues);
 
     //tässä pitäisi antaa data widgetille
     kappaleTable->setData(olentoTable::haeKappaleet() );
-
 }
 
-void MainWindow::on_inputSlider_sliderMoved(int position)
+void MainWindow::on_paaSlider_valueChanged(int value)
 {
+    sliderValueChangedRoutine(0, value);
+}
 
+void MainWindow::on_hartiatSlider_valueChanged(int value)
+{
+    sliderValueChangedRoutine(1, value);
+}
+
+void MainWindow::on_rintakehaSlider_valueChanged(int value)
+{
+    sliderValueChangedRoutine(2, value);
+}
+
+void MainWindow::on_vatsaSlider_valueChanged(int value)
+{
+    sliderValueChangedRoutine(3, value);
+}
+
+void MainWindow::on_selkaSlider_valueChanged(int value)
+{
+    sliderValueChangedRoutine(4, value);
+}
+
+void MainWindow::on_kadetSlider_valueChanged(int value)
+{
+    sliderValueChangedRoutine(5, value);
+}
+
+void MainWindow::on_jalatSlider_valueChanged(int value)
+{
+    sliderValueChangedRoutine(6, value);
 }

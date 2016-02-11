@@ -2,10 +2,12 @@
 #include "olentotable.h"
 #include <QApplication>
 #include <vector>
+#include <QDir>
 
 int main(int argc, char *argv[])
 {
-    olentoTable::loadToList("shapeTable.txt");
+    QString appDir = QDir::homePath();
+    olentoTable::loadToList(appDir + "/olentoStatistics/shapeTable.txt");
 
     QApplication a(argc, argv);
     MainWindow w;
