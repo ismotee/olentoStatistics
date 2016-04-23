@@ -38,14 +38,14 @@ void kappaleWidget::setName(QString name)
 
 }
 
-void kappaleWidget::setData(kappale kpl) {
+void kappaleWidget::setData(kappale& kpl) {
 
-    for (int i = 0; i < kpl.kehollisuus.size();i++) {
+    for (int i = 0; i < (int)kpl.kehollisuus.size();i++) {
         float scaled = kpl.kehollisuus[i] * 100;
         kehoBars.at(i)->setValue((int)scaled);
     }
 
-    for (int i = 0; i < kpl.muoto.size();i++) {
+    for (int i = 0; i < (int)kpl.muoto.size();i++) {
         float scaled = kpl.muoto[i] * 100;
         muotoBars.at(i)->setValue((int)scaled);
     }

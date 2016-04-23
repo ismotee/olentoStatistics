@@ -2,7 +2,7 @@
 #include "ui_kappaletablewidget.h"
 #include "kappalewidget.h"
 
-const int MAX_WIDGETS = 100;
+const int MAX_WIDGETS = 50;
 
 kappaleTableWidget::kappaleTableWidget(QWidget *parent) :
     QWidget(parent),

@@ -9,11 +9,14 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     kappaleTable = new kappaleTableWidget(ui->centralWidget);
+    olentoWidget = new GLWidget(ui->centralWidget);
+
     ui->horizontalLayout->addWidget(kappaleTable);
+    ui->horizontalLayout->addWidget(olentoWidget);
 
-    int i=0;
-    while(i++ < 7) inputValues.push_back(0);
-
+    //int i=0;
+    //while(i++ < 7) inputValues.push_back(0);
+    inputValues.resize(7);
 }
 
 MainWindow::~MainWindow()
@@ -29,10 +32,11 @@ void MainWindow::sliderValueChangedRoutine (int id, int value) {
     float fvalue = (float)value / 100;
         inputValues[id] = fvalue;
 
+        olentoWidget->hide();
     olentoTable::haeSamankehoisia(inputValues);
-
     //tässä pitäisi antaa data widgetille
     kappaleTable->setData(olentoTable::haeKappaleet() );
+    olentoWidget->show();
 }
 
 void MainWindow::on_paaSlider_valueChanged(int value)

@@ -18,7 +18,7 @@ public:
     explicit kappaleWidget(QWidget *parent = 0);
     ~kappaleWidget();
     void setName (QString name);
-    void setData (kappale kpl);
+    void setData (kappale& kpl);
 
 private:
     std::vector<QProgressBar*> muotoBars;

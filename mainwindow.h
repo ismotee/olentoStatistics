@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include "olentotable.h"
 #include "kappaletablewidget.h"
+#include "glwidget.h"
 
 
 namespace Ui {
@@ -39,6 +40,7 @@ private:
 
     //Widget johon voi työntää dataa näytettäväksi
     kappaleTableWidget* kappaleTable;
+    GLWidget* olentoWidget;
 
     //Input sliderien arvot
     std::vector<float> inputValues;
