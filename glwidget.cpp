@@ -2,6 +2,7 @@
 
 #include <QOpenGLShaderProgram>
 #include <QCoreApplication>
+#include <iostream>
 
 GLWidget::GLWidget(QWidget *parent) :
     QOpenGLWidget(parent)
@@ -12,7 +13,28 @@ GLWidget::GLWidget(QWidget *parent) :
 GLWidget::~GLWidget()
 {
     cleanup();
+}
 
+void GLWidget::setShaders(QString fragment_filename, QString vertex_filename)
+{
+
+    std::cout << QCoreApplication::applicationDirPath().toStdString();
+    m_program = new QOpenGLShaderProgram;
+    m_program->addShaderFromSourceFile(QOpenGLShader::Vertex, QCoreApplication::applicationDirPath() + "/" + vertex_filename);
+    m_program->addShaderFromSourceFile(QOpenGLShader::Fragment, QCoreApplication::applicationDirPath() + "/" + fragment_filename);
+
+    m_program->bindAttributeLocation("vertexPosition_modelspace", 0);
+    m_program->bindAttributeLocation("normalPosition_modelspace", 1);
+    m_program->link();
+
+    m_program->bind();
+
+    m_projMatrixLoc = m_program->uniformLocation("projMatrix");
+    m_mvMatrixLoc = m_program->uniformLocation("mvMatrix");
+    m_normalMatrixLoc = m_program->uniformLocation("normalMatrix");
+    m_lightPosLoc = m_program->uniformLocation("lightPos");
+
+    m_program->release();
 }
 
 QSize GLWidget::minimumSizeHint() const
@@ -47,18 +69,7 @@ void GLWidget::initializeGL()
     initializeOpenGLFunctions();
     glClearColor(0, 0, 0, 1);
 
-//    m_program = new QOpenGLShaderProgram;
-  //  m_program->addShaderFromSourceCode(QOpenGLShader::Vertex, m_core ? vertexShaderSourceCore : vertexShaderSource);
-  //  m_program->addShaderFromSourceCode(QOpenGLShader::Fragment, m_core ? fragmentShaderSourceCore : fragmentShaderSource);
-//    m_program->bindAttributeLocation("vertex", 0);
-//    m_program->bindAttributeLocation("normal", 1);
-//    m_program->link();
-
-//      m_program->bind();
-//    m_projMatrixLoc = m_program->uniformLocation("projMatrix");
-//    m_mvMatrixLoc = m_program->uniformLocation("mvMatrix");
-//    m_normalMatrixLoc = m_program->uniformLocation("normalMatrix");
-//    m_lightPosLoc = m_program->uniformLocation("lightPos");
+    setShaders("StandardShading.vertexshader","StandardShading.fragmentshader");
 
     // Create a vertex array object. In OpenGL ES 2.0 and OpenGL 2.x
     // implementations this is optional and support may not be present
@@ -86,8 +97,6 @@ void GLWidget::initializeGL()
 */
 //    m_program->release();
 }
-
-
 
 void GLWidget::paintGL()
 {

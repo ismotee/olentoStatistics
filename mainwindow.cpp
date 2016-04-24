@@ -14,13 +14,14 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->horizontalLayout->addWidget(kappaleTable);
     ui->horizontalLayout->addWidget(olentoWidget);
 
-    //int i=0;
-    //while(i++ < 7) inputValues.push_back(0);
+
     inputValues.resize(7);
 }
 
 MainWindow::~MainWindow()
 {
+    delete olentoWidget;
+    delete kappaleTable;
     delete ui;
 }
 

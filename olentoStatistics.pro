@@ -18,16 +18,14 @@ SOURCES += main.cpp\
     kappalewidget.cpp \
     kappaletablewidget.cpp \
     kappale.cpp \
-    glwidget.cpp \
-    shader.cpp
+    glwidget.cpp
 
 HEADERS  += mainwindow.h \
     olentotable.h \
     kappale.h \
     kappalewidget.h \
     kappaletablewidget.h \
-    glwidget.h \
-    shader.hpp
+    glwidget.h
 
 FORMS    += mainwindow.ui \
     kappalewidget.ui \
@@ -35,5 +33,5 @@ FORMS    += mainwindow.ui \
 
 DISTFILES += \
     shapeTable.txt \
-    SimpleTransform.fragmentshader \
-    SimpleTransform.vertexshader
+    StandardShading.fragmentshader \
+    StandardShading.vertexshader
