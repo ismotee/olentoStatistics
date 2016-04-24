@@ -7,6 +7,8 @@
 #include <QOpenGLVertexArrayObject>
 #include <QOpenGLBuffer>
 
+#include "shader.hpp"
+
 QT_FORWARD_DECLARE_CLASS(QOpenGLShaderProgram)
 
 class GLWidget : public QOpenGLWidget, protected QOpenGLFunctions
@@ -18,6 +20,7 @@ public:
     ~GLWidget();
 
     void cleanup();
+    void setShaders(QString fragment_filename, QString vertex_filename);
 
     QSize minimumSizeHint() const Q_DECL_OVERRIDE;
     QSize sizeHint() const Q_DECL_OVERRIDE;
@@ -32,6 +35,7 @@ private:
  //   QOpenGLVertexArrayObject m_vao;
  //   QOpenGLBuffer m_logoVbo;
     QOpenGLShaderProgram *m_program;
+    GLuint* shader_addr;
 
     int m_projMatrixLoc;
     int m_mvMatrixLoc;
