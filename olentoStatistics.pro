@@ -19,7 +19,9 @@ SOURCES += main.cpp\
     kappaletablewidget.cpp \
     kappale.cpp \
     glwidget.cpp \
-    shader.cpp
+    dobject.cpp \
+    material.cpp \
+    oLoader.cpp
 
 HEADERS  += mainwindow.h \
     olentotable.h \
@@ -27,7 +29,15 @@ HEADERS  += mainwindow.h \
     kappalewidget.h \
     kappaletablewidget.h \
     glwidget.h \
-    shader.hpp
+    dClock.h \
+    dFace.h \
+    dobject.h \
+    material.h \
+    oDirectory.h \
+    oLoader.h \
+    oMesh.h \
+    oMeshBundle.h \
+    oModificators.h
 
 FORMS    += mainwindow.ui \
     kappalewidget.ui \

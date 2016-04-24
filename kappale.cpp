@@ -3,10 +3,10 @@
 #include <algorithm>
 #include <iostream>
 
-float fabs(float x) {
+/*float fabs(float x) {
     if(x<0) return -x;
     else return x;
-}
+}*/
 
 
 kappale::kappale (std::vector<float> kaikkiArvot) {
