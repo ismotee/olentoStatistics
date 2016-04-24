@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 #version 330 core
 
 // Input vertex data, different for all executions of this shader.
@@ -38,7 +37,6 @@ void main(){
 	Normal_cameraspace = ( V * M * vec4(vertexNormal_modelspace,0)).xyz; // Only correct if ModelMatrix does not scale the model ! Use its inverse transpose if not.
 }
 
-=======
 #version 330 core
 
 // Input vertex data, different for all executions of this shader.
@@ -77,5 +75,3 @@ void main(){
 	// Normal of the the vertex, in camera space
 	Normal_cameraspace = ( V * M * vec4(vertexNormal_modelspace,0)).xyz; // Only correct if ModelMatrix does not scale the model ! Use its inverse transpose if not.
 }
-
->>>>>>> 47aae284cfc407900ccd90eaffa24ac0650a411d
