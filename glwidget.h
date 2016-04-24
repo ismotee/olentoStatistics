@@ -6,8 +6,14 @@
 #include <QOpenGLWidget>
 #include <QOpenGLVertexArrayObject>
 #include <QOpenGLBuffer>
+<<<<<<< HEAD
 #include <glm.h>
 #include <vector>
+=======
+
+
+#include "shader.hpp"
+>>>>>>> 47aae284cfc407900ccd90eaffa24ac0650a411d
 
 QT_FORWARD_DECLARE_CLASS(QOpenGLShaderProgram)
 
