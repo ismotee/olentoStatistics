@@ -18,23 +18,16 @@ SOURCES += main.cpp\
     kappalewidget.cpp \
     kappaletablewidget.cpp \
     kappale.cpp \
-<<<<<<< HEAD
-    glwidget.cpp
-=======
     glwidget.cpp \
     dobject.cpp \
     material.cpp \
     oLoader.cpp
->>>>>>> 47aae284cfc407900ccd90eaffa24ac0650a411d
 
 HEADERS  += mainwindow.h \
     olentotable.h \
     kappale.h \
     kappalewidget.h \
     kappaletablewidget.h \
-<<<<<<< HEAD
-    glwidget.h
-=======
     glwidget.h \
     dClock.h \
     dFace.h \
@@ -45,7 +38,6 @@ HEADERS  += mainwindow.h \
     oMesh.h \
     oMeshBundle.h \
     oModificators.h
->>>>>>> 47aae284cfc407900ccd90eaffa24ac0650a411d
 
 FORMS    += mainwindow.ui \
     kappalewidget.ui \
@@ -53,5 +45,5 @@ FORMS    += mainwindow.ui \
 
 DISTFILES += \
     shapeTable.txt \
-    StandardShading.fragmentshader \
-    StandardShading.vertexshader
+    SimpleTransform.fragmentshader \
+    SimpleTransform.vertexshader
