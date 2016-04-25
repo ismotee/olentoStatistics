@@ -6,14 +6,11 @@
 #include <QOpenGLWidget>
 #include <QOpenGLVertexArrayObject>
 #include <QOpenGLBuffer>
-<<<<<<< HEAD
+
 #include <glm.h>
 #include <vector>
-=======
 
-
-#include "shader.hpp"
->>>>>>> 47aae284cfc407900ccd90eaffa24ac0650a411d
+#include "dobject.h"
 
 QT_FORWARD_DECLARE_CLASS(QOpenGLShaderProgram)
 
@@ -27,7 +24,8 @@ public:
 
     void cleanup();
     void setShaders(QString fragment_filename, QString vertex_filename);
-    void setElements(std::vector<int> elements);
+    void setMesh(dObject& obj);
+    void updateAttributeArrays();
 
     QSize minimumSizeHint() const Q_DECL_OVERRIDE;
     QSize sizeHint() const Q_DECL_OVERRIDE;
@@ -39,8 +37,10 @@ protected:
 private:
     bool m_core;
 
- //   QOpenGLVertexArrayObject m_vao;
- //   QOpenGLBuffer m_logoVbo;
+    GLuint vertexArrayID, vertexBuffer,normalBuffer, elementBuffer;
+
+    int element_n;
+
     QOpenGLShaderProgram *m_program;
 
     int m_projMatrixLoc;

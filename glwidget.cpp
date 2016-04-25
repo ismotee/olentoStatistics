@@ -7,7 +7,6 @@
 GLWidget::GLWidget(QWidget *parent) :
     QOpenGLWidget(parent)
 {
-
 }
 
 GLWidget::~GLWidget()
@@ -27,14 +26,61 @@ void GLWidget::setShaders(QString fragment_filename, QString vertex_filename)
     m_program->bindAttributeLocation("normalPosition_modelspace", 1);
     m_program->link();
 
-    m_program->bind();
-
     m_projMatrixLoc = m_program->uniformLocation("projMatrix");
     m_mvMatrixLoc = m_program->uniformLocation("mvMatrix");
     m_normalMatrixLoc = m_program->uniformLocation("normalMatrix");
     m_lightPosLoc = m_program->uniformLocation("lightPos");
 
-    m_program->release();
+}
+
+void GLWidget::setMesh (dObject& obj)
+{
+    glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
+    glBufferData(GL_ARRAY_BUFFER, obj.vertices.size() * sizeof(glm::vec3), &obj.vertices[0], GL_DYNAMIC_DRAW);
+
+    glBindBuffer(GL_ARRAY_BUFFER, normalBuffer);
+    glBufferData(GL_ARRAY_BUFFER, obj.normals.size() * sizeof(glm::vec3), &obj.normals[0], GL_DYNAMIC_DRAW);
+
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, elementBuffer);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, obj.elements.size() * sizeof(glm::vec3), &obj.elements[0], GL_STATIC_DRAW);
+
+    element_n = obj.elements.size();
+}
+
+void GLWidget::updateAttributeArrays()
+{
+
+    glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
+    // 1rst attribute buffer : vertices
+    glEnableVertexAttribArray(0);
+    glVertexAttribPointer(
+        0,                  // attribute
+        3,                  // size
+        GL_FLOAT,           // type
+        GL_FALSE,           // normalized?
+        0,                  // stride
+        (void*)0            // array buffer offset
+        );
+
+
+    glBindBuffer(GL_ARRAY_BUFFER, normalBuffer);
+    // 2nd attribute buffer : normals
+    glEnableVertexAttribArray(1);
+    glVertexAttribPointer(
+        1,                                // attribute
+        3,                                // size
+        GL_FLOAT,                         // type
+        GL_FALSE,                         // normalized?
+        0,                                // stride
+        (void*)0                          // array buffer offset
+        );
+
+    glDrawElements(GL_TRIANGLES, element_n, GL_UNSIGNED_INT, 0);
+
+    glDisableVertexAttribArray(0);
+    glDisableVertexAttribArray(1);
+
+
 }
 
 QSize GLWidget::minimumSizeHint() const
@@ -50,9 +96,15 @@ QSize GLWidget::sizeHint() const
 void GLWidget::cleanup()
 {
     makeCurrent();
-    //m_logoVbo.destroy();
+
     delete m_program;
     m_program = 0;
+
+    glDeleteBuffers(1, &vertexBuffer);
+    glDeleteBuffers(1, &normalBuffer);
+    glDeleteBuffers(1, &elementBuffer);
+    glDeleteVertexArrays(1, &vertexArrayID);
+
     doneCurrent();
 }
 void GLWidget::initializeGL()
@@ -70,6 +122,20 @@ void GLWidget::initializeGL()
     glClearColor(0, 0, 0, 1);
 
     setShaders("StandardShading.vertexshader","StandardShading.fragmentshader");
+
+#ifdef __APPLE__
+    glGenVertexArraysAPPLE(1, &vertexArrayID);
+    glBindVertexArrayAPPLE(vertexArrayID);
+#else
+    glGenVertexArrays(1, &vertexArrayID);
+    glBindVertexArray(vertexArrayID);
+#endif
+
+    glGenBuffers(1,&vertexBuffer);
+    glGenBuffers(1,&normalBuffer);
+    glGenBuffers(1,&elementBuffer);
+
+
 
     // Create a vertex array object. In OpenGL ES 2.0 and OpenGL 2.x
     // implementations this is optional and support may not be present
