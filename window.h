@@ -38,86 +38,39 @@
 **
 ****************************************************************************/
 
-#ifndef GLWIDGET_H
-#define GLWIDGET_H
+#ifndef WINDOW_H
+#define WINDOW_H
 
-#include <QOpenGLWidget>
-#include <QOpenGLFunctions>
-#include <QOpenGLVertexArrayObject>
-#include <QOpenGLBuffer>
-#include <QMatrix4x4>
-//#include "logo.h"
-#include "dobject.h"
+#include <QWidget>
 
-QT_FORWARD_DECLARE_CLASS(QOpenGLShaderProgram)
+class QSlider;
+class QPushButton;
 
-class GLWidget : public QOpenGLWidget, protected QOpenGLFunctions
+class GLWidget;
+class MainWindow;
+
+class Window : public QWidget
 {
     Q_OBJECT
 
 public:
-    GLWidget(QWidget *parent = 0);
-    ~GLWidget();
-
-    QSize minimumSizeHint() const Q_DECL_OVERRIDE;
-    QSize sizeHint() const Q_DECL_OVERRIDE;
-
-public slots:
-    void setXRotation(int angle);
-    void setYRotation(int angle);
-    void setZRotation(int angle);
-    void cleanup();
-
-signals:
-    void xRotationChanged(int angle);
-    void yRotationChanged(int angle);
-    void zRotationChanged(int angle);
+    Window(MainWindow *mw);
 
 protected:
-    void initializeGL() Q_DECL_OVERRIDE;
-    void paintGL() Q_DECL_OVERRIDE;
-    void resizeGL(int width, int height) Q_DECL_OVERRIDE;
-    void mousePressEvent(QMouseEvent *event) Q_DECL_OVERRIDE;
-    void mouseMoveEvent(QMouseEvent *event) Q_DECL_OVERRIDE;
+    void keyPressEvent(QKeyEvent *event) Q_DECL_OVERRIDE;
+
+private slots:
+    void dockUndock();
 
 private:
-    void setupVertexAttribs();
-    void updateVertices();
+    QSlider *createSlider();
 
-    bool m_core;
-    int m_xRot;
-    int m_yRot;
-    int m_zRot;
-    QPoint m_lastPos;
-    //Logo m_logo;
-    dObject m_obj;
-    QOpenGLVertexArrayObject m_vao;
-    //QOpenGLBuffer m_vbo;
-    QOpenGLBuffer m_vertexBuffer;
-    QOpenGLBuffer m_normalBuffer;
-    QOpenGLBuffer m_elementBuffer;
-
-    QOpenGLShaderProgram *m_program;
-    /*
-    int m_projMatrixLoc;
-    int m_mvMatrixLoc;
-    int m_normalMatrixLoc;
-    int m_lightPosLoc;
-    */
-    int m_MVPMatrixID;
-    int m_ViewMatrixID;
-    int m_ModelMatrixID;
-    int m_lightPosID;
-    //fragment uniforms: LightPos, diffuseColor, specularity, hardness, alpha
-    int m_diffuseColorID;
-    int m_specularityID;
-    int m_hardnessID;
-    int m_alphaID;
-
-    QMatrix4x4 m_proj;
-    QMatrix4x4 m_camera;
-    QMatrix4x4 m_world;
-    bool m_transparent;
+    GLWidget *glWidget;
+    QSlider *xSlider;
+    QSlider *ySlider;
+    QSlider *zSlider;
+    QPushButton *dockBtn;
+    MainWindow *mainWindow;
 };
 
 #endif

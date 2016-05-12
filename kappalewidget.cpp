@@ -25,6 +25,7 @@ kappaleWidget::kappaleWidget(QWidget *parent) :
     kehoBars.push_back(ui->kadetBar);
     kehoBars.push_back(ui->jalatBar);
 
+
 }
 
 kappaleWidget::~kappaleWidget()
@@ -52,4 +53,12 @@ void kappaleWidget::setData(kappale& kpl) {
 
     ui->eroavaisuus->setText(QString::number(kpl.eroavuus));
 
+}
+
+void kappaleWidget::showGL (bool on_off)
+{
+    if(on_off)
+        ui->widget->show();
+    else
+        ui->widget->hide();
 }

@@ -21,13 +21,13 @@ void olentoTable::loadToList(QString path)
         QString str = file.readLine();
         QStringList strList = str.split(";", QString::SkipEmptyParts);
         std::vector<float> values;
-        std::cout << "values: " << strList.length() << "\n";
+       // std::cout << "values: " << strList.length() << "\n";
         for(int i = 0; i < strList.length();i++) {
             QString strr = (QString)strList.at(i);
-            std::cout << "[" << strr.toFloat() << "] ";
+            //std::cout << "[" << strr.toFloat() << "] ";
             values.push_back(strr.toFloat());
         }
-        std::cout << "\n";
+        //std::cout << "\n";
         kappaleet.push_back(kappale(values));
     }
 
@@ -59,7 +59,7 @@ void olentoTable::poistaHuonot() {
             if(alreadyAdded == false) {
                 //lisää kappaleisiin
                 kappaleet.push_back(kaikki[i]);
-                kaikki[i].kerro();
+                //kaikki[i].kerro();
             }
         }
     }

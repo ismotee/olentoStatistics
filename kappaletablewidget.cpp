@@ -36,3 +36,4 @@ void kappaleTableWidget::setData(std::vector<kappale> kappaleet)
         kplWidget[i]->setData(kappaleet[i]);
     }
 }
+

@@ -5,6 +5,8 @@
 #include <vector>
 #include <QProgressBar>
 #include "kappale.h"
+#include "glwidget.h"
+#include "oModificators.h"
 
 namespace Ui {
 class kappaleWidget;
@@ -19,11 +21,13 @@ public:
     ~kappaleWidget();
     void setName (QString name);
     void setData (kappale& kpl);
+    void showGL (bool on_off);
 
 private:
     std::vector<QProgressBar*> muotoBars;
     std::vector<QProgressBar*> kehoBars;
     Ui::kappaleWidget *ui;
+
 };
 
 #endif // KAPPALEWIDGET_H

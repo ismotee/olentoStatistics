@@ -21,7 +21,8 @@ SOURCES += main.cpp\
     glwidget.cpp \
     dobject.cpp \
     material.cpp \
-    oLoader.cpp
+    oLoader.cpp \
+    window.cpp
 
 HEADERS  += mainwindow.h \
     olentotable.h \
@@ -37,7 +38,8 @@ HEADERS  += mainwindow.h \
     oLoader.h \
     oMesh.h \
     oMeshBundle.h \
-    oModificators.h
+    oModificators.h \
+    window.h
 
 FORMS    += mainwindow.ui \
     kappalewidget.ui \

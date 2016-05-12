@@ -38,9 +38,11 @@ private slots:
 private:
     Ui::MainWindow *ui;
 
+    void onAddNew();
+
     //Widget johon voi työntää dataa näytettäväksi
     kappaleTableWidget* kappaleTable;
-    GLWidget* olentoWidget;
+    dObject obj;
 
     //Input sliderien arvot
     std::vector<float> inputValues;

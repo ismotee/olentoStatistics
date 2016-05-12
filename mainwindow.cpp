@@ -1,26 +1,42 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "kappaletablewidget.h"
-#include <QDir>
+#include "window.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
+
     ui->setupUi(this);
     kappaleTable = new kappaleTableWidget(ui->centralWidget);
-    olentoWidget = new GLWidget(ui->centralWidget);
 
     ui->horizontalLayout->addWidget(kappaleTable);
-    ui->horizontalLayout->addWidget(olentoWidget);
 
+   // QMenuBar *menuBar = new QMenuBar;
+   // QMenu *menuWindow = menuBar->addMenu(tr("&Window"));
+   // QAction *addNew = new QAction(menuWindow);
+   // addNew->setText(tr("Add new"));
+   // menuWindow->addAction(addNew);
+   // connect(addNew, &QAction::triggered, this, &MainWindow::onAddNew);
+   // setMenuBar(menuBar);
+
+   // onAddNew();
 
     inputValues.resize(7);
 }
 
+void MainWindow::onAddNew()
+{
+  //  if (!centralWidget())
+      kappaleTable->layout()->addWidget(new GLWidget(kappaleTable));
+  //  else
+  //      qDebug() << "Cannot add new window" << "Already occupied. Undock first.";
+}
+
+
 MainWindow::~MainWindow()
 {
-    delete olentoWidget;
     delete kappaleTable;
     delete ui;
 }
@@ -33,11 +49,9 @@ void MainWindow::sliderValueChangedRoutine (int id, int value) {
     float fvalue = (float)value / 100;
         inputValues[id] = fvalue;
 
-        olentoWidget->hide();
     olentoTable::haeSamankehoisia(inputValues);
     //tässä pitäisi antaa data widgetille
     kappaleTable->setData(olentoTable::haeKappaleet() );
-    olentoWidget->show();
 }
 
 void MainWindow::on_paaSlider_valueChanged(int value)
