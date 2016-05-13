@@ -13,7 +13,7 @@ void olentoTable::loadToList(QString path)
     //lukee kappaleet tiedostosta tableen
     QFile file(path);
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
-        std::cout << "Read error! \n";
+        std::cout << "Read error: " << path.toStdString() << "\n";
         return;
     }
     while(!file.atEnd()) {

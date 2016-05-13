@@ -1,5 +1,8 @@
 #include "kappalewidget.h"
 #include "ui_kappalewidget.h"
+#include "glm/vec3.hpp"
+#include <vector>
+
 
 kappaleWidget::kappaleWidget(QWidget *parent) :
     QWidget(parent),
@@ -41,6 +44,8 @@ void kappaleWidget::setName(QString name)
 
 void kappaleWidget::setData(kappale& kpl) {
 
+    showGL(false);
+
     for (int i = 0; i < (int)kpl.kehollisuus.size();i++) {
         float scaled = kpl.kehollisuus[i] * 100;
         kehoBars.at(i)->setValue((int)scaled);
@@ -50,9 +55,16 @@ void kappaleWidget::setData(kappale& kpl) {
         float scaled = kpl.muoto[i] * 100;
         muotoBars.at(i)->setValue((int)scaled);
     }
+    std::vector<float> values = kpl.muoto;
+    values.erase(values.begin() + 1);
+    values.erase(values.begin() + 1);
+
+    std::cerr << "values.size: " << values.size() << "\n";
+    ui->widget->m_obj.vertices = mod_ptr->getShape(values);
 
     ui->eroavaisuus->setText(QString::number(kpl.eroavuus));
 
+    showGL(true);
 }
 
 void kappaleWidget::showGL (bool on_off)
@@ -61,4 +73,10 @@ void kappaleWidget::showGL (bool on_off)
         ui->widget->show();
     else
         ui->widget->hide();
+}
+
+void kappaleWidget::setMods(oModificators &mods)
+{
+    mod_ptr = &mods;
+
 }

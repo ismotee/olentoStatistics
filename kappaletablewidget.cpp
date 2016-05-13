@@ -2,12 +2,21 @@
 #include "ui_kappaletablewidget.h"
 #include "kappalewidget.h"
 
-const int MAX_WIDGETS = 50;
+const int MAX_WIDGETS = 10;
+
+namespace modit {
+
+}
 
 kappaleTableWidget::kappaleTableWidget(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::kappaleTableWidget)
+
 {
+    std::string modDirs[4] = {"ylos","sivulle","ulos","kierteinen"};
+
+    mods.initialize(QCoreApplication::applicationDirPath().toStdString() + "/meshes/","arkkityypit", std::vector<std::string> (&modDirs[0],&modDirs[4]) );
+
     ui->setupUi(this);
     QGridLayout* layout = new QGridLayout(ui->scrollAreaWidgetContents);
 
@@ -15,10 +24,9 @@ kappaleTableWidget::kappaleTableWidget(QWidget *parent) :
         kappaleWidget* kplW = new kappaleWidget(ui->scrollAreaWidgetContents);
         layout->addWidget(kplW,i,0,1,1);
         kplW->setName(QString::number(i));
+        kplW->setMods(mods);
         kplWidget.push_back(kplW);
     }
-
-
 }
 
 kappaleTableWidget::~kappaleTableWidget()

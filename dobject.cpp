@@ -102,10 +102,10 @@ elements(_elements)
     cerr << "Created object " << id << "\n";
 }
 
-void dObject::changeVertices(std::vector<glm::vec3>& new_vertices)
+void dObject::changeVertices(std::vector<glm::vec3> new_vertices)
 {
 	vertices = new_vertices;
-	calculateAllNormals();
+ //	calculateAllNormals();
 }
 
 void dObject::makeFaces() //tätä pitäisi optimoida!

@@ -8,6 +8,7 @@
 #include "oLoader.h"
 #include "dFace.h"
 #include "dClock.h"
+#include "glm/glm.hpp"
 
 class dFacesConnected;
 class dObject;
@@ -76,7 +77,7 @@ public:
 	std::vector<glm::vec3> facePositions;
 
     void calculateAllNormals();
-    void changeVertices(std::vector<glm::vec3>& new_vertices);
+    void changeVertices(std::vector<glm::vec3> new_vertices);
     void changeVerticesTowards(std::vector<glm::vec3>& aim_vertices, float multi);
     
     std::vector<dFacesConnected> vFacesConnected;

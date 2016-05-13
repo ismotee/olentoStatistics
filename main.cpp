@@ -4,14 +4,14 @@
 #include <vector>
 #include <QDir>
 #include <QSurfaceFormat>
+#include <QCoreApplication>
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
 
-
-    QString appDir = QDir::homePath();
-    olentoTable::loadToList(appDir + "/olentoStatistics/shapeTable.txt");
+    QString appDir = QCoreApplication::applicationDirPath();
+    olentoTable::loadToList(appDir + "/shapeTable.txt");
 
     QSurfaceFormat fmt;
     fmt.setDepthBufferSize(24);

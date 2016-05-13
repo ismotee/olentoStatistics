@@ -7,11 +7,11 @@ bool oLoader::loadOBJ(
 	std::vector<glm::vec3>& vertices)
 {
 
-    //std::cerr << "Loading OBJ file " << path.c_str() << "... ";
+    std::cerr << "Loading OBJ file " << path.c_str() << "... \n";
 
 	FILE * file = fopen(path.c_str(), "r");
 	if (file == NULL){
-        //cerr << "Couldn't open file" << path.c_str() << endl;
+        cerr << "Couldn't open file" << path.c_str() << endl;
 		return false;
 	}
 

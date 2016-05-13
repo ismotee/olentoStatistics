@@ -22,7 +22,11 @@ SOURCES += main.cpp\
     dobject.cpp \
     material.cpp \
     oLoader.cpp \
-    window.cpp
+    window.cpp \
+    oMesh.cpp \
+    oMeshBundle.cpp \
+    oModificators.cpp \
+    oDirectory.cpp
 
 HEADERS  += mainwindow.h \
     olentotable.h \
@@ -36,10 +40,10 @@ HEADERS  += mainwindow.h \
     material.h \
     oDirectory.h \
     oLoader.h \
+    window.h \
     oMesh.h \
     oMeshBundle.h \
-    oModificators.h \
-    window.h
+    oModificators.h
 
 FORMS    += mainwindow.ui \
     kappalewidget.ui \

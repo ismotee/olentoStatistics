@@ -9,9 +9,10 @@
 #ifndef opengltest_oMesh_h
 #define opengltest_oMesh_h
 
-//#include "olento.h"
+#include "glm/glm.hpp"
 #include "oLoader.h"
 #include <vector>
+#include <iostream>
 
 #endif
 
@@ -35,15 +36,5 @@ public:
 
 };
 
-oMesh::oMesh(int size) {
-    vertices.resize(size);
-
-
-}
-
-oMesh::oMesh (std::string path)
-{
-    oLoader::loadOBJ(path,vertices);
-}
 
 

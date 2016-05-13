@@ -61,6 +61,7 @@ public:
 
     QSize minimumSizeHint() const Q_DECL_OVERRIDE;
     QSize sizeHint() const Q_DECL_OVERRIDE;
+    dObject m_obj;
 
 public slots:
     void setXRotation(int angle);
@@ -90,7 +91,6 @@ private:
     int m_zRot;
     QPoint m_lastPos;
     //Logo m_logo;
-    dObject m_obj;
     QOpenGLVertexArrayObject m_vao;
     //QOpenGLBuffer m_vbo;
     QOpenGLBuffer m_vertexBuffer;

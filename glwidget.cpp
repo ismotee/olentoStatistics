@@ -15,7 +15,8 @@ GLWidget::GLWidget(QWidget *parent)
       m_yRot(0),
       m_zRot(0),
       m_program(0),
-      m_elementBuffer(QOpenGLBuffer::IndexBuffer)
+      m_elementBuffer(QOpenGLBuffer::IndexBuffer),
+      m_obj()
 {
 
     QSurfaceFormat fmt = format();

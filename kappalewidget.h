@@ -12,6 +12,8 @@ namespace Ui {
 class kappaleWidget;
 }
 
+
+
 class kappaleWidget : public QWidget
 {
     Q_OBJECT
@@ -22,11 +24,13 @@ public:
     void setName (QString name);
     void setData (kappale& kpl);
     void showGL (bool on_off);
+    void setMods(oModificators& mods);
 
 private:
     std::vector<QProgressBar*> muotoBars;
     std::vector<QProgressBar*> kehoBars;
     Ui::kappaleWidget *ui;
+    oModificators* mod_ptr;
 
 };
 
