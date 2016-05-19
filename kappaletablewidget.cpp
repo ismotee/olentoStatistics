@@ -13,7 +13,7 @@ kappaleTableWidget::kappaleTableWidget(QWidget *parent) :
     ui(new Ui::kappaleTableWidget)
 
 {
-    std::string modDirs[4] = {"ylos","sivulle","ulos","kierteinen"};
+    std::string modDirs[4] = {"ylos","sivulle","ulos","kierteinen",};
 
     mods.initialize(QCoreApplication::applicationDirPath().toStdString() + "/meshes/","arkkityypit", std::vector<std::string> (&modDirs[0],&modDirs[4]) );
 

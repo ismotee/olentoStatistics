@@ -16,14 +16,20 @@ void olentoTable::loadToList(QString path)
         std::cout << "Read error: " << path.toStdString() << "\n";
         return;
     }
+
+    int jarjestys[14] = {0,3,2,4,5,6,1,7,8,9,10,11,12,13};
+
     while(!file.atEnd()) {
 
         QString str = file.readLine();
         QStringList strList = str.split(";", QString::SkipEmptyParts);
         std::vector<float> values;
        // std::cout << "values: " << strList.length() << "\n";
+
+
+
         for(int i = 0; i < strList.length();i++) {
-            QString strr = (QString)strList.at(i);
+            QString strr = (QString)strList.at(jarjestys[i]);
             //std::cout << "[" << strr.toFloat() << "] ";
             values.push_back(strr.toFloat());
         }
