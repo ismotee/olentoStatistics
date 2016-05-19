@@ -1,5 +1,6 @@
 #include "oLoader.h"
 #include <iostream>
+#include <cstring>
 using namespace std;
 
 bool oLoader::loadOBJ(

@@ -57,6 +57,12 @@ void kappaleWidget::setData(kappale& kpl) {
     }
     std::vector<float> values = kpl.muoto;
 
+    QVector3D color(palette_ptr->GetColor(values[2]));
+
+    ui->widget->color = color;
+
+    std::cerr << color.x() << "\n";
+
     values.erase(values.begin() + 1);
     values.erase(values.begin() + 1);
 
@@ -92,5 +98,11 @@ void kappaleWidget::showGL (bool on_off)
 void kappaleWidget::setMods(oModificators &mods)
 {
     mod_ptr = &mods;
+
+}
+
+void kappaleWidget::setPalette(oPalette &palette)
+{
+    palette_ptr = &palette;
 
 }

@@ -9,6 +9,7 @@
 #include "dFace.h"
 #include "dClock.h"
 #include "glm/glm.hpp"
+#include "material.h"
 
 class dFacesConnected;
 class dObject;
@@ -68,6 +69,7 @@ public:
     std::vector<glm::vec3> vertices;
     std::vector<glm::vec3> normals;
     std::vector<unsigned int> elements;
+    material mat;
         
     oRawDataT getVertexData();
     oRawDataT getNormalData();

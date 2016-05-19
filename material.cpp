@@ -1,7 +1,7 @@
 #include "material.h"
+#include "QImage"
 
 material materials[5];
-
 
 float randf(float min, float max) {
 	return ((float)rand() / RAND_MAX) * (max - min) + min;

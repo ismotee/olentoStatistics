@@ -8,7 +8,6 @@ struct material{
 	float specularity; //0...1
 	float hardness; // 1...7
 	glm::vec3 diffuseColor; //r,g,b 0...1
-
 };
 
 void createMaterials();

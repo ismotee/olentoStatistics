@@ -62,6 +62,7 @@ public:
     QSize minimumSizeHint() const Q_DECL_OVERRIDE;
     QSize sizeHint() const Q_DECL_OVERRIDE;
     dObject m_obj;
+    QVector3D color;
 
 public slots:
     void setXRotation(int angle);

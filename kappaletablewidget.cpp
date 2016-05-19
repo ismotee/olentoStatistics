@@ -4,9 +4,7 @@
 
 const int MAX_WIDGETS = 10;
 
-namespace modit {
 
-}
 
 kappaleTableWidget::kappaleTableWidget(QWidget *parent) :
     QWidget(parent),
@@ -17,6 +15,8 @@ kappaleTableWidget::kappaleTableWidget(QWidget *parent) :
 
     mods.initialize(QCoreApplication::applicationDirPath().toStdString() + "/meshes/","arkkityypit", std::vector<std::string> (&modDirs[0],&modDirs[4]) );
 
+    palette.Load(QCoreApplication::applicationDirPath() + "/colors_8.png");
+
     ui->setupUi(this);
     QGridLayout* layout = new QGridLayout(ui->scrollAreaWidgetContents);
 
@@ -25,6 +25,7 @@ kappaleTableWidget::kappaleTableWidget(QWidget *parent) :
         layout->addWidget(kplW,i,0,1,1);
         kplW->setName(QString::number(i));
         kplW->setMods(mods);
+        kplW->setPalette(palette);
         kplWidget.push_back(kplW);
     }
 }

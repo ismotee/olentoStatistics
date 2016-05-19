@@ -16,7 +16,8 @@ GLWidget::GLWidget(QWidget *parent)
       m_zRot(0),
       m_program(0),
       m_elementBuffer(QOpenGLBuffer::IndexBuffer),
-      m_obj()
+      m_obj(),
+      color(1.0f,1.0f,1.0f)
 {
 
     QSurfaceFormat fmt = format();
@@ -202,7 +203,7 @@ void GLWidget::initializeGL()
     // Set fixed properties: light pos & material
     m_program->setUniformValue(m_lightPosID, QVector3D(11,6,11));
 
-    m_program->setUniformValue(m_diffuseColorID, QVector3D(1,1,1));
+    m_program->setUniformValue(m_diffuseColorID, color);
     m_program->setUniformValue(m_specularityID, 0.9f);
     m_program->setUniformValue(m_hardnessID, 7.0f);
     m_program->setUniformValue(m_alphaID, 1.0f);

@@ -7,6 +7,7 @@
 #include <vector>
 #include "oModificators.h"
 #include <QCoreApplication>
+#include "oPalette.h"
 
 
 namespace Ui {
@@ -26,6 +27,7 @@ private:
     Ui::kappaleTableWidget *ui;
     std::vector<kappaleWidget*> kplWidget;
     oModificators mods;
+    oPalette palette;
 };
 
 #endif // KAPPALETABLEWIDGET_H

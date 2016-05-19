@@ -26,7 +26,8 @@ SOURCES += main.cpp\
     oMesh.cpp \
     oMeshBundle.cpp \
     oModificators.cpp \
-    oDirectory.cpp
+    oDirectory.cpp \
+    oPalette.cpp
 
 HEADERS  += mainwindow.h \
     olentotable.h \
@@ -43,7 +44,8 @@ HEADERS  += mainwindow.h \
     window.h \
     oMesh.h \
     oMeshBundle.h \
-    oModificators.h
+    oModificators.h \
+    oPalette.h
 
 FORMS    += mainwindow.ui \
     kappalewidget.ui \

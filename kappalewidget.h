@@ -7,6 +7,7 @@
 #include "kappale.h"
 #include "glwidget.h"
 #include "oModificators.h"
+#include "oPalette.h"
 
 namespace Ui {
 class kappaleWidget;
@@ -25,12 +26,14 @@ public:
     void setData (kappale& kpl);
     void showGL (bool on_off);
     void setMods(oModificators& mods);
+    void setPalette (oPalette& palette);
 
 private:
     std::vector<QProgressBar*> muotoBars;
     std::vector<QProgressBar*> kehoBars;
     Ui::kappaleWidget *ui;
     oModificators* mod_ptr;
+    oPalette* palette_ptr;
 
 };
 
